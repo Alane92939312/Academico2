@@ -16,6 +16,7 @@ public class Principal {
 	//	System.out.println("Sexo: " + a1.getSexo());
 		
 		System.out.println(a1.imprimirAluno());
+		System.out.println(a1.getCurso());
 		
 	}
 
