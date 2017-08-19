@@ -12,12 +12,32 @@ public class Principal {
 				Professor p1 = new Professor("Arthur", "457", "Doutorado", "02504177899");
 				Turma t1 = new Turma("Turma K", p1, d1);
 				
+				
+				//Adicionar A1 em T1
+				t1.adicionarAluno(a1);
+				
+				
+				
+				
+				System.out.println(t1.getAlunos().get(0).getNome());
+				Aluno a2 = new  Aluno("maria", "8888", "F",LocalDate.of(2017,6,30));
+				t1.adicionarAluno(a2);
+				 
+				System.out.println();
+				
 				System.out.println(a1.getDataComoString());
 				
 				System.out.println(a1.getRA());
 				System.out.println(d1.getCurso());
 				System.out.println(p1.getCPF());
 				System.out.println(t1.getDisciplina());
+				
+				
+				
+				
+				
+				
+				
 				
 	}
 	}
