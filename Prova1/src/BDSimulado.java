@@ -72,4 +72,135 @@ public class BDSimulado {
 	
 }
 
+    
+    //(2a)Funçao que retorne todas as informações de um Cliente fornecido o seu nome
+    public String getInfoCliente(String nome){
+		String resultado = "";
+		
+		//Percorrer a lista de clientes buscando pelo nome
+		for (int i = 0; i < this.clientes.size(); i++) {
+			if (this.clientes.get(i).getNome().equals(nome)) {
+				resultado = "\nNome: " + this.clientes.get(i).getNome()
+						+ "\n" +
+						"CPF: " + this.clientes.get(i).getCpf()
+						+ "\n" +
+					    "Data de Nascimento: " + this.clientes.get(i).getDataComoString()
+					    + "\n" +
+					    "Numero de Telefone: " + this.clientes.get(i).getNumeroDeTelefone()
+						+ "\n" +
+						"Cidade: " + this.clientes.get(i).getCidade()
+						+ "\n" +
+					    "UF: " + this.clientes.get(i).getUf();
+			}
+		}
+		
+		return resultado;
+		
+		
+		
+    }
+    
+    //(2b)Função que retorne a lista de todas as Ligações realizadas por um Cliente determinado
+    public ArrayList<Ligacao> ligacoesPorCliente(String nome){
+		ArrayList<Ligacao> resultado = new ArrayList<Ligacao>();
+		//pecorre a lista de ligaçoes
+		for (int i = 0; i < this.ligacoes.size(); i++) {
+			if (this.ligacoes.get(i).getCliente().getNome().equals(nome) ) {
+				resultado.add(this.ligacoes.get(i));
+			}
+			}
+	
+		return resultado;
+		
+	}
+    
+    
+    //(2c)função que retorne o número de ligações realizadas por todos os Clientes de uma determinada UF
+    public int ligacoesPorUF(String UF){
+    	int resultado = 0;
+   //pecorre a lista de ligaçoes
+    	for (int i = 0; i < this.ligacoes.size(); i++) {
+			if(this.ligacoes.get(i).getCliente().getUf().equals(UF)){
+				resultado ++;
+			}
+		}
+	
+		return resultado;
+    	
+    }
+    
+    
+    
+    //(2d)função que retorne uma lista com os códigos de todas as Ligações onde a UF de origem seja diferente da UF de destino.
+    
+    public ArrayList<Integer>  ligacoesUFDiferente(){
+    	ArrayList<Integer> resultado = new ArrayList<Integer>();
+    	
+    	//pecorre a lista de ligaçoes
+    	for (int i = 0; i < this.ligacoes.size(); i++) {
+			if(this.ligacoes.get(i).getCliente().getUf()!= this.ligacoes.get(i).getuFDeDestino()){
+				resultado.add(this.ligacoes.get(i).getCodigo());
+			}
+			}
+    	return resultado;
+    }
+    
+    
+    //(3a)Crie um método (ou um conjunto deles) que permita emitir a conta de um determinado Cliente,
+    //mostrando seus dados pessoais e a lista de suas ligações, onde, para cada ligação, seja mostrada a data e a hora 
+    //em que a Ligação foi iniciada, o número de destino e a cidade/UF de destino.
+    
+    public ArrayList<Ligacao> getContaDoCliente(String nome) {
+    	ArrayList<Ligacao> resultado = new ArrayList<Ligacao>();
+		
+    	
+    	//pecorre a lista de ligaçoes
+		for (int i = 0; i < this.ligacoes.size(); i++) {
+			if (this.ligacoes.get(i).getCliente().getNome().equals(nome)) {
+				resultado.add(this.ligacoes.get(i));
+			}
+		}
+		return resultado;
+	}
+				
+		//(3b)	Uma informação fundamental na conta do Cliente é o valor de cada ligação. Sabendo que cada minuto de uma
+				//ligação custa R$0,05 para o Cliente	
+				
+		//public double getValorLigacao(String nome){
+			
+			//double resultado = 0.0;
+			
+			//pecorre a lista de ligaçoes
+			//for (int i = 0; i < this.ligacoes.size(); i++) {
+				//if(this.ligacoes.get(i).getCliente().getNome().equals(nome){
+			//	}
+			//}
+			
+			//return resultado;
+			
+			
+			
+		//}
+				
+    
+   
+    
+    
+    
+	public ArrayList<Cliente> getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(ArrayList<Cliente> clientes) {
+		this.clientes = clientes;
+	}
+
+	public ArrayList<Ligacao> getLigacoes() {
+		return ligacoes;
+	}
+
+	public void setLigacoes(ArrayList<Ligacao> ligacoes) {
+		this.ligacoes = ligacoes;
+	}
+
 }
